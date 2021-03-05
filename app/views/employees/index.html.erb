@@ -1,0 +1,31 @@
+ <div class="content-center employees_list">
+  <h3>Employees</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "type" %>First Name</th>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "text-left" %>Last Name</th>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "text-left" %>Email</th>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "text-left" %>Phone</th>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "text-left" %>Salary</th>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "text-left" %>Department</th>
+        <th data-defaultsort="desc" scope="col"><%= bootstrap_icon "text-left" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |emp| %>
+        <tr id="employee_data_<%= emp.id%>">
+          <td class="first_name"><%= emp.first_name %></td>
+          <td class="last_name"><%= emp.last_name %></td>
+          <td><%= emp.email_address %></td>
+          <td><%= emp.phone %></td>
+          <td><%= emp.salary %></td>
+          <td class="department" data-dep-id= <%= emp.department.id%>><%= emp.department.name %></td>
+          <td><%= link_to 'Edit Department', 'javascript:void(0)', class: 'employee_dep',data: {emp_id: emp.id} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render partial: "department_modal" %>

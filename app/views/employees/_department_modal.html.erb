@@ -1,0 +1,21 @@
+<div id="employee_department_dialog" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title emp_name"></h3>
+      </div>
+      <div class="modal-body">
+        Department
+        <select class="departments" name="state">
+          <% options_for_select_department.each do |dep| %>
+            <option value= <%= dep[:id] %>><%= dep[:name] %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary update_dep">Update</button>
+        <button type="button" class="btn btn-secondary cancel" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
