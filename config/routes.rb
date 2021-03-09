@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root 'employees#index'
 
   get '/employees', to: 'employees#index'
-  put '/employees/:id/departments', to: 'employees#update_department'
+  put '/employees/:id/departments', to: 'employees#update_department' 
+
+  get '/departments/:id', to: 'departments#get_employees'
 end

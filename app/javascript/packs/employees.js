@@ -38,5 +38,22 @@ $(document).ready(function() {
     $(".emp_name").text(employeeData['name']);
     $(".departments option[value='"+ employeeData['dept_id'] +"']").attr("selected", "selected");
   }
+
+
+  $(".departments").click(function() {
+    let depId = $(".departments option:selected").val()
+    $.ajax({
+      url: '/departments/' + depId,
+      type: "GET",
+      success: function(data) {
+         if (data.length > 0) {
+           $(".department_employees").text(data);
+         } else {
+           $(".department_employees").text("There are no employees");
+         }
+      },
+    })
+    
+  })
 });
 
